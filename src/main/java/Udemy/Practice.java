@@ -18,11 +18,14 @@ public class Practice {
         driver.get("https://rahulshettyacademy.com/loginpagePractise/#");
         driver.findElement(By.cssSelector(".blinkingText")).click();
         Set<String> windows = driver.getWindowHandles();
-
+        Iterator<String> it = windows.iterator();
+        String parentId = it.next();
+        String childId = it.next();
+        driver.switchTo().window(childId);
         System.out.println(driver.findElement(By.cssSelector(".im-para.red")).getText());
         driver.findElement(By.cssSelector(".im-para.red")).getText();
         String emailId = driver.findElement(By.cssSelector(".im-para.red")).getText().split(" ")[4];
-
+        driver.switchTo().window(parentId);
         driver.findElement(By.id("username")).sendKeys(emailId);
 
     }
