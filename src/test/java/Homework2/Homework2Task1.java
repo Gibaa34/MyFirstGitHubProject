@@ -25,6 +25,11 @@ public class Homework2Task1 {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    @After
+    public void tearDown() {
+        driver.close();
+    }
+
     //Първа задача
     @Test
     public void testing() {
@@ -46,7 +51,7 @@ public class Homework2Task1 {
     @Test
     public void testing2() throws InterruptedException {
 
-        String email = "plamenmanolov10@yahoo.com";
+        String email = "plamenmanolov11@yahoo.com";
         String verifyMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
 
         driver.get("http://automationpractice.com/index.php");
@@ -98,8 +103,5 @@ public class Homework2Task1 {
         driver.findElement(By.xpath("//a[@class='logout']")).click();
     }
 
-    @After
-    public void tearDown() {
-        driver.close();
-    }
+
 }
