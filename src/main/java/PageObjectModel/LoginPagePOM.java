@@ -21,7 +21,7 @@ public class LoginPagePOM extends HomePagePOM {
     By passwordField = By.id("passwd");
     By signInBtn = By.id("SubmitLogin");
     By accountInfo = By.xpath("//div[@class = 'header_user_info']/a[@class = 'account']");
-    By forgotenPasswordLinkBtn = By.xpath("//p[@class = 'lost_password form-group']/a[@rel= 'nofollow']");
+    By forgottenPasswordLinkBtn = By.xpath("//p[@class = 'lost_password form-group']/a[@rel= 'nofollow']");
     By logOutBtn = By.cssSelector("[title='Log me out']");
     By createAccountEmailField = By.id("email_create");
     By createAccountBtn = By.id("SubmitCreate");
@@ -38,10 +38,9 @@ public class LoginPagePOM extends HomePagePOM {
     }
 
     public void login(String email, String password) throws IOException {
-
         if (validateEmail(email) && password.length() > 5) {
             ScreenShooter.takeWebElementScreenShot(wait.until(ExpectedConditions.visibilityOfElementLocated(loginForm)),
-                    "LoginForm");
+                    "LoginFormPOM");
             wait.until(ExpectedConditions.visibilityOfElementLocated(loginForm));
             wait.until(ExpectedConditions.visibilityOfElementLocated(emailField)).sendKeys(email);
             wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);

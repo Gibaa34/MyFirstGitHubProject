@@ -9,7 +9,7 @@ public class Log {
 
     public static void startTestDetails(String testname){
         mainLogger.info("-----------------------------");
-        mainLogger.info("--------"+testname+"---------");
+        mainLogger.info("------- "+testname+" --------");
         mainLogger.info("-----------------------------");
     }
 

@@ -6,6 +6,7 @@ import PageFactoryModel.LoginPageFactory;
 import PageObjectModel.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -43,10 +44,10 @@ public class LoginTest {
         homePage.closePage();
     }
 
-    @Test
+    /*@Test
     public void factoryLogin() {
-        /*PageFactory.initElements(driver, HomePageFactory.class);
-        PageFactory.initElements(driver, LoginPageFactory.class);*/
+        *//*PageFactory.initElements(driver, HomePageFactory.class);
+        PageFactory.initElements(driver, LoginPageFactory.class);*//*
         HomePageFactory homePageFactory = new HomePageFactory(driver);
         homePageFactory.navigateTo();
         LoginPageFactory loginPageFactory = homePageFactory.openSingInPage();
@@ -54,5 +55,5 @@ public class LoginTest {
         loginPageFactory.checkAccountInfoByText("Plamen Manolov");
         loginPageFactory.logOut();
         homePageFactory.closePage();
-    }
+    }*/
 }

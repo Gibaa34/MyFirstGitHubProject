@@ -3,9 +3,11 @@ package LoginTests;
 import FrameWork.ItemDetails;
 import FrameWork.MainTestSetUp;
 import FrameWork.Utilities.ReadFromXml;
+import PageFactoryModel.*;
 import PageObjectModel.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -42,7 +44,7 @@ public class SanityTest extends MainTestSetUp {
     }
 
     @Test
-    public void sanityTest() throws IOException, InterruptedException {
+    public void sanityTestPOM() throws IOException, InterruptedException {
         HomePagePOM homePage = new HomePagePOM(this.driver, this.getUsername());
         homePage.navigateTo(this.getMainURL());
         LoginPagePOM loginPage = homePage.openSingInPage();
@@ -59,6 +61,25 @@ public class SanityTest extends MainTestSetUp {
         CheckoutPaymentPagePOM checkoutPaymentPage = checkoutShippingPage.acceptAndProceed();
         checkoutPaymentPage.validatePrices();
         checkoutPaymentPage.payWithBankWire();
+    }
 
+    @Test
+    public void sanityTestFactory() throws IOException, InterruptedException {
+        HomePageFactory homePage = new HomePageFactory(this.driver, this.getUsername());
+        homePage.navigateTo(this.getMainURL());
+        LoginPageFactory loginPage = homePage.openSingInPage();
+       //RegistrationPageFactory registrationPage = loginPage.createAnAccount(this.getUsername());
+       //LoggedInPageFactory loggedInPage = registrationPage.register();
+        loginPage.login(this.getUsername(),this.getPassword());
+        loginPage.goToHomePage();
+        ProductDetailsPageFactory productDetailsPage = homePage.openItems(item.itemLocator);
+        productDetailsPage.addToCart(item);
+        CheckoutSummaryPageFactory checkoutSUmmaryPage = productDetailsPage.proceedToCheckout();
+        CheckoutAddressPageFactory checkoutAddressPage = checkoutSUmmaryPage.validateValuesAndProceed(item);
+        checkoutAddressPage.validateAddressFields(this.getUsername());
+        CheckoutShippingPageFactory checkoutShippingPage = checkoutAddressPage.proceedToShipping();
+        CheckoutPaymentPageFactory checkoutPaymentPage = checkoutShippingPage.acceptAndProceed();
+        checkoutPaymentPage.validatePrices();
+        checkoutPaymentPage.payWithCheck();
     }
 }

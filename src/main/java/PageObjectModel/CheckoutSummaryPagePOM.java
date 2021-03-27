@@ -33,5 +33,4 @@ public class CheckoutSummaryPagePOM extends RegistrationPagePOM {
         wait.until(ExpectedConditions.visibilityOfElementLocated(proceedToAddressPage)).click();
         return new CheckoutAddressPagePOM(driver);
     }
-
 }

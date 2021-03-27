@@ -41,6 +41,7 @@ public class ProductDetailsPagePOM extends HomePagePOM{
         this.driver = driver;
         wait = new WebDriverWait(driver,10);
     }
+
     public void addToCart(ItemDetails details) throws InterruptedException {
         WebElement quantity = wait.until(ExpectedConditions.visibilityOfElementLocated(itemQuantityField));
         quantity.clear();

@@ -35,7 +35,7 @@ public class RegistrationPagePOM extends LoginPagePOM {
     By lastName = By.id("lastname");
     By company = By.id("company");
     By address = By.id("address1");
-    By seconderyAddress = By.id("address2");
+    By secondaryAddress = By.id("address2");
     By city = By.id("city");
     By state = By.id("id_state");
     By zipPostalCode = By.id("postcode");
@@ -44,7 +44,7 @@ public class RegistrationPagePOM extends LoginPagePOM {
     By homePhone = By.id("phone");
     By mobilePhone = By.id("phone_mobile");
     By addressAlies = By.id("alias");
-    By regiserBtn = By.id("submitAccount");
+    By registerBtn = By.id("submitAccount");
 
     public RegistrationPagePOM() {
 
@@ -87,7 +87,7 @@ public class RegistrationPagePOM extends LoginPagePOM {
         wait.until(ExpectedConditions.visibilityOfElementLocated(homePhone)).sendKeys(details.get(16));
         wait.until(ExpectedConditions.visibilityOfElementLocated(mobilePhone)).sendKeys(details.get(17));
         wait.until(ExpectedConditions.visibilityOfElementLocated(addressAlies)).sendKeys(details.get(18));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(regiserBtn)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(registerBtn)).click();
 
         return new LoggedInPagePOM(driver);
     }

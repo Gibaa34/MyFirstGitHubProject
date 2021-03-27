@@ -24,7 +24,6 @@ public class CheckoutShippingPagePOM extends CheckoutAddressPagePOM{
     public CheckoutShippingPagePOM(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(this.driver, 10);
-        this.email = email;
     }
 
     public CheckoutPaymentPagePOM acceptAndProceed() {
@@ -35,5 +34,4 @@ public class CheckoutShippingPagePOM extends CheckoutAddressPagePOM{
         wait.until(ExpectedConditions.visibilityOfElementLocated(proceedToPaymentPage)).click();
         return new CheckoutPaymentPagePOM(driver);
     }
-
 }
